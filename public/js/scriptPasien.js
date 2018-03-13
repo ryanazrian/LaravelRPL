@@ -15,7 +15,7 @@ $(document).ready(function() {
           $('#gedung').val($(this).data('namagedung'));
           $('#kamar').val($(this).data('namakamar'));
           $('#p').val($(this).data('penyakit'));
-          $('#dokter').val($(this).data('namadokter'));
+          $('#dokter').val($(this).data('dokter'));
           $('#l').val($(this).data('hp'));
           $('#myModal').modal('show');
       });
@@ -37,18 +37,21 @@ $(document).ready(function() {
       $('.modal-footer').on('click', '.edit', function() {
           $.ajax({
               type: 'post',
-              url: '/editItem',
+              url: '/editPasien',
               data: {
                   '_token': $('input[name=_token]').val(),
-                  'id': $("#fid").val(),
-                  'nama_dokter': $('#n').val(),
-                  'spesialis': $('#s').val(),
-                  'noHp': $('#l').val(),
-                  'email': $('#e').val()
+                  'ids': $("#fid").val(),
+                  'nama': $('#nama').val(),
+                  'tanggalLahir': $('#lahir').val(),
+                  'id_Gedung': $('#gedung').val(),
+                  'id_kamar': $('#kamar').val(),
+                  'deskripsiPenyakit': $('#p').val(),
+                  'id_Dokter': $('#dokter').val(),
+                  'noHp': $('#l').val()
               },
               success: function(data) {
                   //$('.item' + data.id).replaceWith("<tr class='item" + data.id + "'><td>" + data.id + "</td><td>" + data.name + "</td><td><button class='edit-modal btn btn-info' data-id='" + data.id + "' data-name='" + data.name + "'><span class='glyphicon glyphicon-edit'></span> Edit</button> <button class='delete-modal btn btn-danger' data-id='" + data.id + "' data-name='" + data.name + "' ><span class='glyphicon glyphicon-trash'></span> Delete</button></td></tr>");
-                  window.location = '/redirections';
+                  window.location = '/redirectionsPasien';
               }
           });
       });
@@ -110,7 +113,7 @@ $(document).ready(function() {
                 }
             });
         }else{
-            $('select[name="kamar"]').empty();
+            $('select[name="id_kamar"]').empty();
         }
     });
   });

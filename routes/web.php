@@ -56,5 +56,6 @@ Route::post('/tambahPasien', 'pasienController@store')->name('post.pasien');
 Route::get('/tambahPasien/{id}', 'pasienController@dropDown');
 Route::get('/tampilanPasien', 'pasienController@tampilanPasien');
 Route::post('/deletePasien', 'pasienController@deleteItem');
+Route::post('/editPasien', 'pasienController@editPasien');
 Route::get('redirectionPasien', 'pasienController@redirection');
 Route::get('redirectionsPasien', 'pasienController@redirections');

@@ -110,7 +110,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Spesialis</label>
                                 <div class="col-sm-10">
-                                        <select $nasi=id="s" class="form-control select2" style="width: 100%;">
+                                        <select id="s" class="form-control select2" style="width: 100%;">
                                         @foreach ($spesialis as $data )
                                            <option value="{{$data->spesialis}}" 
                                             @if ($data->id)

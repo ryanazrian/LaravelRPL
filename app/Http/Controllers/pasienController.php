@@ -8,7 +8,7 @@ use App\gedung;
 use App\Doctor;
 use App\kamar;
 use App\Pasien;
-
+use Carbon\Carbon;
 
 class pasienController extends Controller
 {
@@ -25,11 +25,20 @@ class pasienController extends Controller
         // $kamar = kamar::all();
         // $gedung = gedung::all();
         $pasiens = DB::table('pasiens')
-            ->leftJoin('gedungs', 'pasiens.id_Gedung', '=', 'gedungs.id')
-            ->leftJoin('kamars', 'pasiens.id_kamar', '=', 'kamars.id')
+            ->join('gedungs', 'pasiens.id_Gedung', '=', 'gedungs.id')
+            ->join('kamars', 'pasiens.id_kamar', '=', 'kamars.id')
             ->leftJoin('doctors', 'pasiens.id_Dokter', '=', 'doctors.id')
             ->get();
-        return view('templates.tampilanPasien', compact('pasiens'));
+
+        $dokter = Doctor::all();
+        $gedung = gedung::all();
+
+    
+        // $dtToronto = new Carbon ($dokter[1]->created_at);
+        // $dtVancouver = Carbon::now();
+
+        // $beda =  $dtVancouver->diffInDays($dtToronto);
+        return view('templates.tampilanPasien', compact('pasiens', 'dokter', 'gedung', 'beda'));
     }
 
     public function dropDown($id)
@@ -52,9 +61,32 @@ class pasienController extends Controller
         return redirect('\tambahPasien')->with(['success' => 'Tambah Pasien Berhasil']);
     }
 
+    public function editPasien(Request $req)
+    {
+        Pasien::where('ids', $req->ids)->update([
+            'nama'=>$req->nama, 
+            'tanggalLahir'=>$req->tanggalLahir,
+            'id_Gedung'=>$req->id_Gedung,
+            'id_kamar'=>$req->id_kamar,
+            'deskripsiPenyakit'=>$req->deskripsiPenyakit,
+            'id_Dokter'=>$req->id_Dokter,
+            'noHp'=>$req->noHp
+            ]);
+        // $pasien->nama = $req->nama;
+        // $pasien->tanggalLahir = $req->tanggalLahir;
+        // $pasien->id_Gedung = $req->id_Gedung;
+        // $pasien->id_kamar = $req->id_kamar;
+        // $pasien->deskripsiPenyakit = $req->deskripsiPenyakit;
+        // $pasien->id_Dokter = $req->id_Dokter;
+        // $pasien->noHp = $req->noHp;
+        // $pasien->save();
+
+        // return response ()->json ( $pasien );
+    }
+
     public function deleteItem(Request $req)
     {
-        Pasien::find($req->id)->delete();
+        Pasien::where('ids', $req->id)->delete();
         return redirect('\tampilanPasien') -> with(['success' => 'Hapus Pasien Berhasil']);
     }
 

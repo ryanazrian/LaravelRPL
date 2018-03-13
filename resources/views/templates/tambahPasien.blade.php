@@ -77,7 +77,8 @@
             <div class="form-group">
               <label for="exampleInputFile">Nama Gedung</label>
               <select name="id_Gedung" class="form-control select2" style="width: 100%;" value="">--- Pilih Gedung ---</option>
-              @foreach ($gedung as $key)
+                <option value="">--Pilih Gedung--</option>
+                @foreach ($gedung as $key)
                   <option value="{{ $key->id }}">{{ $key->namaGedung }}</option>
               @endforeach
               </select>
@@ -86,12 +87,13 @@
             <div class="form-group">
               <label for="exampleInputFile">Nama Kamar</label>
               <select name="id_kamar" class="form-control select2" style="width: 100%;">
+                  <option value="">--Pilih Kamar--</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="exampleInputFile">Nama Dokter</label>
-              <select name="id_Dokter" class="form-control select2" style="width: 100%;" value="">--- Pilih Gedung ---</option>
+              <select id="namaDokter" name="id_Dokter" class="form-control select2" style="width: 100%;" value="">--- Pilih Gedung ---</option>
                 @foreach ($dokters as $dokter)
                     <option value="{{ $dokter->id }}">{{ $dokter  ->nama_dokter }}</option>
                 @endforeach

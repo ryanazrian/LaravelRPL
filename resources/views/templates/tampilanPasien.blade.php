@@ -54,6 +54,7 @@
                         <th>Nama Gedung</th>
                         <th>Nama Kamar</th>
                         <th>Nama Dokter</th>
+                        <th>Biaya Kamar</th>
                         <th>Action</th>
                         </tr>
                         </thead>
@@ -70,20 +71,34 @@
                                 <td> {{$pasien->namaGedung}}</td>
                                 <td> {{$pasien->namaKamar}}</td>
                                 <td> {{$pasien->nama_dokter}}</td>
+                                <td> Rp{{ number_format(Carbon\Carbon::now()->diffInDays(new Carbon\Carbon($pasien->created_at)) * $pasien->hargaPerMalam)}}</td>
                                 <td> 
-                                    <button class="edit-modal btn btn-info" data-id="{{$pasien->id}}"
-                                            data-name="{{$pasien->nama}}" data-hp="{{$pasien->noHp}}" data-tanggallahir="{{$pasien->tanggalLahir}}" data-penyakit="{{$pasien->deskripsiPenyakit}}" data-namagedung = "{{$pasien->namaGedung}}" data-namakamar="{{$pasien->namaKamar}}" data-namadokter ="{{$pasien->nama_dokter}}">
+                                    <button class="edit-modal btn btn-info" data-id="{{$pasien->ids}}"
+                                            data-name="{{$pasien->nama}}" data-hp="{{$pasien->noHp}}" data-tanggallahir="{{$pasien->tanggalLahir}}" data-penyakit="{{$pasien->deskripsiPenyakit}}" data-namagedung = "{{$pasien->id_Gedung}}" data-namakamar = "{{$pasien->id_kamar}}" data-dokter ="{{$pasien->id_Dokter}}">
                                             <span class="glyphicon glyphicon-edit"></span> Edit
                                     </button>
 
                                     <button class="delete-modal btn btn-danger"
-                                        data-id="{{$pasien->id}}" data-name="{{$pasien->nama}}">
+                                        data-id="{{$pasien->ids}}" data-name="{{$pasien->nama}}">
                                         <span class="glyphicon glyphicon-trash"></span> Delete
                                     </button>
                                 </td>
                                 </tr>
                                 </tbody>
                         @endforeach
+                        <tfoot>
+                                <tr>
+                                  <th>Jumlah Total</th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th>CSS grade</th>
+                                </tr>
+                                </tfoot>
                     </table>
                     </div>
                     <!-- /.box-body -->
@@ -128,31 +143,47 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Deskripsi Penyakit</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="p">
+                                    <textarea class="form-control" id="p" rows="3"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Nama Gedung</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="gedung">
+                                        <select name="id_Gedung" id="gedung" class="form-control select2" style="width: 100%;" value="">
+                                            <option value="">--Pilih Gedung--</option>
+                                            @foreach ($gedung as $key)
+                                              <option value="{{ $key->id }}">{{ $key->namaGedung }}</option>
+                                          @endforeach
+                                          </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Nama Kamar</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="kamar">
+                                        <select id="kamar" name="id_kamar" class="form-control select2" style="width: 100%;">
+                                                <option value="">--Pilih Kamar--</option>
+                                            </select>
+                                        {{-- <textarea class="form-control" id="kamar" rows="3"></textarea> --}}
+
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Nama Dokter</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="dokter">
-                                </div>
+                                    <select id="dokter" name="id_Dokter" class="form-control select2" style="width: 100%;">
+                                        <option value="">--Pilih Dokter--</option>
+                                    @foreach ($dokter as $data )
+                                       <option value="{{$data->id}}">{{$data->nama_dokter}}</option>
+                                    @endforeach
+                                    </select>
+
+                                    {{-- <textarea class="form-control" id="dokter" rows="3"></textarea> --}}
+                            </div>
                             </div>
                         </form>
                         <div class="deleteContent">
                             Are you Sure you want to delete <span class="dname"></span> ? <span
-                                class="hidden did"></span>
+                                class="did"></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn actionBtn" data-dismiss="modal">
