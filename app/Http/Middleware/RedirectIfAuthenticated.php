@@ -18,9 +18,9 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            $angka = 1;
+            return redirect('\home');
         }
-
-        return $next($request);
+        return $next($request)->with(['success' => 'Login Berhasil']);
     }
 }

@@ -59,6 +59,7 @@
                         </tr>
                         </thead>
                         <?php $no = 0 ?>
+                        <?php $total = 0?>
                         @foreach ($pasiens as $pasien)
                         <tbody>
                                 <tr>
@@ -68,18 +69,19 @@
                                 <td>{{$pasien -> tanggalLahir}}</td>
                                 <td> {{$pasien -> noHp}}</td>
                                 <td> {{$pasien -> deskripsiPenyakit}}</td>
-                                <td> {{$pasien->namaGedung}}</td>
-                                <td> {{$pasien->namaKamar}}</td>
-                                <td> {{$pasien->nama_dokter}}</td>
-                                <td> Rp{{ number_format(Carbon\Carbon::now()->diffInDays(new Carbon\Carbon($pasien->created_at)) * $pasien->hargaPerMalam)}}</td>
+                                <td> {{$pasien->gedung['namaGedung']}}</td>
+                                <td> {{$pasien->kamar['namaKamar']}}</td>
+                                <td> {{$pasien->pasien['nama_dokter']}}</td>
+                                <td> Rp{{ number_format(Carbon\Carbon::now()->diffInDays(new Carbon\Carbon($pasien->created_at)) * $pasien->kamar['hargaPerMalam'])}}</td>
                                 <td> 
+                                    <?php $total+=(Carbon\Carbon::now()->diffInDays(new Carbon\Carbon($pasien->created_at)) * $pasien->kamar['hargaPerMalam']) ?>
                                     <button class="edit-modal btn btn-info" data-id="{{$pasien->ids}}"
-                                            data-name="{{$pasien->nama}}" data-hp="{{$pasien->noHp}}" data-tanggallahir="{{$pasien->tanggalLahir}}" data-penyakit="{{$pasien->deskripsiPenyakit}}" data-namagedung = "{{$pasien->id_Gedung}}" data-namakamar = "{{$pasien->id_kamar}}" data-dokter ="{{$pasien->id_Dokter}}">
+                                            data-name="{{$pasien->kamar['namaKamar']    }}" data-hp="{{$pasien->noHp}}" data-tanggallahir="{{$pasien->tanggalLahir}}" data-penyakit="{{$pasien->deskripsiPenyakit}}" data-namagedung = "{{$pasien->id_Gedung}}" data-namakamar = "{{$pasien->id_kamar}}" data-dokter ="{{$pasien->id_Dokter}}">
                                             <span class="glyphicon glyphicon-edit"></span> Edit
                                     </button>
 
                                     <button class="delete-modal btn btn-danger"
-                                        data-id="{{$pasien->ids}}" data-name="{{$pasien->nama}}">
+                                        data-id="{{$pasien->ids}}" data-name="{{$pasien->kamar['namaKamar']}}">
                                         <span class="glyphicon glyphicon-trash"></span> Delete
                                     </button>
                                 </td>
@@ -96,7 +98,7 @@
                                   <th></th>
                                   <th></th>
                                   <th></th>
-                                  <th>CSS grade</th>
+                                  <th>Rp{{number_format($total)}}</th>
                                 </tr>
                                 </tfoot>
                     </table>

@@ -12,7 +12,7 @@
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      {{-- <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -20,13 +20,13 @@
                 </button>
               </span>
         </div>
-      </form>
+      </form> --}}
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
+        <li href="{{url('/home')}}">
+          <a href="{{url('/home')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -56,7 +56,7 @@
             </span>
           </a>
         </li> --}}
-        <li class="treeview">
+        {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Charts</span>
@@ -70,7 +70,7 @@
             <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
             <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
           </ul>
-        </li>
+        </li> --}}
         {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
@@ -98,7 +98,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ url('/tambahPasien') }}"><i class="fa fa-circle-o"></i> Tambah Pasien</a></li>
             <li><a href="{{ url('/tambahDokter') }}"><i class="fa fa-circle-o"></i> Tambah Dokter</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
+            {{-- <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Tambah Admin</a></li> --}}
           </ul>
         </li>
         <li class="treeview">
@@ -109,9 +109,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="{{url('/tampilanPasien')}}"><i class="fa fa-circle-o"></i> Data Pasien</a></li>
+            <li><a href="{{url('/tampilanPasien')}}"><i class="fa fa-circle-o"></i> Data Pasien</a></li>
             <li><a href="{{url('/tampilanDokter')}}"><i class="fa fa-circle-o"></i> Data Dokter</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data Admin</a></li>
+            {{-- <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data Admin</a></li> --}}
           </ul>
         </li>
         {{-- <li>
@@ -123,7 +123,7 @@
             </span>
           </a>
         </li> --}}
-        <li>
+        {{-- <li>
           <a href="pages/mailbox/mailbox.html">
             <i class="fa fa-envelope"></i> <span>Mailbox</span>
             <span class="pull-right-container">
@@ -151,7 +151,7 @@
             <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
             <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
           </ul>
-        </li>
+        </li> --}}
         {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Multilevel</span>

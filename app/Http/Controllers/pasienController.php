@@ -12,6 +12,23 @@ use Carbon\Carbon;
 
 class pasienController extends Controller
 {
+
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
     public function index()
     {
         $gedung = gedung::all();
@@ -21,15 +38,14 @@ class pasienController extends Controller
 
     public function tampilanPasien()
     {
-        // $pasiens = Pasien::all();
+        $pasiens = Pasien::all();
         // $kamar = kamar::all();
         // $gedung = gedung::all();
-        $pasiens = DB::table('pasiens')
-            ->join('gedungs', 'pasiens.id_Gedung', '=', 'gedungs.id')
-            ->join('kamars', 'pasiens.id_kamar', '=', 'kamars.id')
-            ->leftJoin('doctors', 'pasiens.id_Dokter', '=', 'doctors.id')
-            ->get();
-
+        // $pasiens = DB::table('pasiens')
+        //     ->join('gedungs', 'pasiens.id_Gedung', '=', 'gedungs.id')
+        //     ->join('kamars', 'pasiens.id_kamar', '=', 'kamars.id')
+        //     ->Join('doctors', 'pasiens.id_Dokter', '=', 'doctors.id')
+        //     ->get();
         $dokter = Doctor::all();
         $gedung = gedung::all();
 

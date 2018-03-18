@@ -38,6 +38,7 @@ Route::get('/tambahDokter', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/chart', 'HomeController@chart');
 
 Route::get('/tampilanDokter', 'addDokter@index')->name('index');
 Route::get('/tambahDokter', 'addDokter@spesialis');
