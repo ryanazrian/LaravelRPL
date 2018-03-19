@@ -24,52 +24,43 @@
 <body>
 	
 	<div class="limiter">
-			@if ($message = Session::get('success'))
-			<div class="alert alert-success alert-block">
-			<button type="button" class="close" data-dismiss="alert">×</button>	
-			  <strong>{{ $message }}</strong>
-			</div>
-			@endif
-			
-			@if ($message = Session::get('error'))
-			<div class="alert alert-danger alert-block">
-			  <button type="button" class="close" data-dismiss="alert">×</button>	
-			<strong>{{ $message }}</strong>
-			</div>
-			@endif
-			
-			@if ($message = Session::get('warning'))
-			<div class="alert alert-warning alert-block">
-			<button type="button" class="close" data-dismiss="alert">×</button>	
-			<strong>{{ $message }}</strong>
-			</div>
-			@endif
-			
-			@if ($message = Session::get('info'))
-			<div class="alert alert-info alert-block">
-			  <button type="button" class="close" data-dismiss="alert">×</button>	
-			<strong>{{ $message }}</strong>
-			</div>
-			@endif
-			
-			@if ($errors->any())
-			<div class="alert alert-danger">
-			<button type="button" class="close" data-dismiss="alert">×</button>	
-			Please check the form below for errors
-			</div>
-			@endif
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="{{asset ('assets/login/images/img-01.png') }}" alt="IMG">
 				</div>
-
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+						@if ($message = Session::get('error'))
+						<div class="alert alert-danger alert-block">
+						  <button type="button" class="close" data-dismiss="alert">×</button>	
+						<strong>{{ $message }}</strong>
+						</div>
+						@endif
+						
+						@if ($message = Session::get('warning'))
+						<div class="alert alert-warning alert-block">
+						<button type="button" class="close" data-dismiss="alert">×</button>	
+						<strong>{{ $message }}</strong>
+						</div>
+						@endif
+						
+						@if ($message = Session::get('info'))
+						<div class="alert alert-info alert-block">
+						  <button type="button" class="close" data-dismiss="alert">×</button>	
+						<strong>{{ $message }}</strong>
+						</div>
+						@endif
+						
+						@if ($errors->any())
+						<div class="alert alert-danger">
+						<button type="button" class="close" data-dismiss="alert">×</button>	
+						Please check the form below for errors
+						</div>
+						@endif
 					@csrf
 					<span class="login100-form-title">
 						Member Login
 					</span>
-
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input id="email" class="input100" type="text" name="email" placeholder="Email">
 						@if ($errors->has('email'))

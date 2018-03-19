@@ -93,7 +93,7 @@
 
             <div class="form-group">
               <label for="exampleInputFile">Nama Dokter</label>
-              <select id="namaDokter" name="id_Dokter" class="form-control select2" style="width: 100%;" value="">--- Pilih Gedung ---</option>
+              <select name="id_Dokter" class="form-control select2" style="width: 100%;" value="">--- Pilih Gedung ---</option>
                 @foreach ($dokters as $dokter)
                     <option value="{{ $dokter->id }}">{{ $dokter  ->nama_dokter }}</option>
                 @endforeach
