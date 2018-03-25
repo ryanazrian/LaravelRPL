@@ -76,7 +76,7 @@
                                 <td> 
                                     <?php $total+=(Carbon\Carbon::now()->diffInDays(new Carbon\Carbon($pasien->created_at)) * $pasien->kamar['hargaPerMalam']) ?>
                                     <button class="edit-modal btn btn-info" data-id="{{$pasien->ids}}"
-                                            data-name="{{$pasien->kamar['namaKamar']    }}" data-hp="{{$pasien->noHp}}" data-tanggallahir="{{$pasien->tanggalLahir}}" data-penyakit="{{$pasien->deskripsiPenyakit}}" data-namagedung = "{{$pasien->id_Gedung}}" data-namakamar = "{{$pasien->id_kamar}}" data-dokter ="{{$pasien->id_Dokter}}">
+                                            data-name="{{$pasien->nama}}" data-hp="{{$pasien->noHp}}" data-tanggallahir="{{$pasien->tanggalLahir}}" data-penyakit="{{$pasien->deskripsiPenyakit}}" data-namagedung = "{{$pasien->id_Gedung}}" data-namakamar = "{{$pasien->id_kamar}}" data-dokter ="{{$pasien->id_Dokter}}">
                                             <span class="glyphicon glyphicon-edit"></span> Edit
                                     </button>
 
