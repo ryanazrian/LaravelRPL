@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'codepanda.web.id'),
+            'host' => env('DB_HOST', 'dbfree.net'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'adminhospital'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', 'akatsuki_codepanda'),
+            'username' => env('DB_USERNAME', 'ryanazrian'),
+            'password' => env('DB_PASSWORD', 'azharns1653'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
