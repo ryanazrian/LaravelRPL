@@ -13,11 +13,11 @@ class TablePasiensssReferences extends Migration
      */
     public function up()
     {
-        Schema::table('pasiens', function (Blueprint $table) {
-            $table->foreign('id_Gedung')
-            ->references('id')->on('gedungs')
-            ->onDelete('cascade');
-        });
+        // Schema::table('pasiens', function (Blueprint $table) {
+        //     $table->foreign('id_Gedung')
+        //     ->references('id')->on('gedungs')
+        //     ->onDelete('cascade');
+        // });
     }
 
     /**

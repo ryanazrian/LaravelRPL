@@ -27,7 +27,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--header-->
 	<div class="header-w3l">
 		<a class="txt2" href="{{ url('/') }}">
-			<h1>Admin Hospital</h1>
+			<h1>Admin Hospital</h1> </a>
 	</div>
 <!--//header-->
 <!--main-->
