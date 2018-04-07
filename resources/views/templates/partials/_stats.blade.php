@@ -35,7 +35,7 @@
     @endif
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-xs-6">
+          <div class="col-lg-4 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
@@ -50,7 +50,7 @@
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-xs-6">
+          <div class="col-lg-4 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-yellow">
               <div class="inner">
@@ -66,23 +66,7 @@
           </div>
 
           <!-- ./col -->
-          <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-red">
-              <div class="inner">
-                <h3>hahah</h3>
-  
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-          <!-- ./col -->
-          <div class="col-lg-3 col-xs-6">
+          <div class="col-lg-4 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
@@ -93,16 +77,16 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <div class="small-box-footer bg-green"><i class="fa"></i></div>
             </div>
           </div>
           <!-- ./col -->
         </div>
 <!-- /.row -->
       <!-- Main row -->
-      <div class="row">
+      <div class="position-relative">
             <!-- Left col -->
-            <section class="col-lg-7 connectedSortable">
+            <section class="col-lg-8 connectedSortable">
               <!-- Custom tabs (Charts with tabs)-->
               <div class="nav-tabs-custom">
                 <!-- Tabs within a box -->
