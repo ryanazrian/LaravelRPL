@@ -54,12 +54,12 @@
 						@if ($errors->any())
 						<div class="alert alert-danger">
 						<button type="button" class="close" data-dismiss="alert">×</button>	
-						Please check the form below for errors
+						Masukan email/password dengan benar
 						</div>
 						@endif
 					@csrf
 					<span class="login100-form-title">
-						Member Login
+						Admin Login
 					</span>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input id="email" class="input100" type="text" name="email" placeholder="Email">
@@ -104,8 +104,8 @@
 
 					<div class="text-center p-t-136">
 						<a class="txt2" href="{{ url('/daftar') }}">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+							{{-- //Create your Account --}}
+							<i aria-hidden="true"></i>
 						</a>
 					</div>
 				</form>
