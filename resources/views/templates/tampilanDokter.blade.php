@@ -111,12 +111,11 @@
                                 <label class="control-label col-sm-2" for="name">Spesialis</label>
                                 <div class="col-sm-10">
                                         <select id="s" class="form-control select2" style="width: 100%;">
+                                        <option value="">--Pilih Spesialis--</option>  
                                         @foreach ($spesialis as $data )
                                            <option value="{{$data->spesialis}}" 
-                                            @if ($data->id)
-                                                selected
-                                            @endif
-                                            
+                                
+                                    
                                             >{{$data->spesialis}}</option>
                                         @endforeach
                                         </select>
